@@ -6,7 +6,7 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 17:54:58 by akefeder          #+#    #+#             */
-/*   Updated: 2022/03/15 17:55:37 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/03/15 18:56:23 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,16 @@ int	ft_strlen(char *s)
 
 	i = 0;
 	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
+int	ft_maplen(char **s)
+{
+	int		i;
+
+	i = 0;
+	while (s[i] != NULL)
 		i++;
 	return (i);
 }

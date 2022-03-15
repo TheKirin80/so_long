@@ -6,36 +6,52 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:28:58 by akefeder          #+#    #+#             */
-/*   Updated: 2022/03/15 18:10:39 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/03/15 18:49:48 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	rempli_map(char *av, t_map *map)
-{
-	int		fd;
-	char	*line;
-    int		ret;
+#include "so_long.h"
 
-	fd = open(av, O_RDONLY);
-	line = NULL;
-	while ((ret = get_next_line(fd, &line) > 0))
+int test_ext(char *av, char *ext, int i)
+{
+	int	j;
+
+	j = 0;
+	while(ext[j] != '\0')
 	{
+		if (ext[j] != av[i])
+			return (ERROR);
+		j++;
 		i++;
-		add_map(map, line);
-		line = NULL;
 	}
+	return (OK);
 }
+
+int	test_fich(char *av)
+{
+	int	len;
+	int	i;
+
+	len = ft_strlen(av);
+	if (len <= 4)
+		return(ERROR);
+	if (test_ext(av, ".ber", len - 5) == ERROR)
+		return (ERROR);
+	return (OK);
+}
+
 int main(int ac, char **av)
 {
 	t_map	map;
-	if (ac > 2)
+	if (ac > 2 || test_fich(av[1]) == ERROR)
 	{
-		ft_putstr("Error");
+		ft_putstr("Error in parameters");
 		return (1);
 	}
-	if (rempli_map(av[1], &map) == 1)
+	if (rempli_map(av[1], &map) == ERROR || valide_map(&map))
 	{
 		gest_error(&map);
 		return(1);
 	}
+	
 }
