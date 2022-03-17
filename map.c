@@ -6,11 +6,19 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:47:53 by akefeder          #+#    #+#             */
-/*   Updated: 2022/03/15 20:08:00 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/03/17 14:48:45 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	prepa_map(t_map *map)
+{
+	map->map = NULL;
+	map->p = 0;
+	map->e = 0;
+	map->c = 0;
+}
 
 int	add_map(t_map *map, char *line)
 {
@@ -35,7 +43,7 @@ int	add_map(t_map *map, char *line)
 		save[i] = line;
 	}
 	free(map->map);
-	map = save;
+	map->map. = save;
 	return (OK);
 }
 
@@ -46,12 +54,33 @@ int	rempli_map(char *av, t_map *map)
     int		ret;
 
 	fd = open(av, O_RDONLY);
+	if (fd == -1)
+		return (ERROR);
 	line = NULL;
-	while ((ret = get_next_line(fd, &line) > 0))
+	ret = get_next_line(fd, &line);
+	while (ret > 0)
 	{
 		if (add_map(map, line) == ERROR)
 			return(ERROR);
 		line = NULL;
+		ret = get_next_line(fd, &line);
 	}
+	if (ret == -1)
+	{
+		if (line != NULL)
+			free(line);
+		return (ERROR);
+	}
+	else	
+		if (add_map(map, line) == ERROR)
+			return(ERROR);
+	line = NULL;
+	return (OK);
 }
 
+int	verif_map(t_map *map)
+{
+	if (map->map == NULL)
+		return(ERROR);
+	if (ft_strlen(map->map[0]))
+}

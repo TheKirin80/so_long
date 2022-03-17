@@ -6,7 +6,7 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:28:58 by akefeder          #+#    #+#             */
-/*   Updated: 2022/03/15 18:49:48 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/03/17 14:48:50 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	test_fich(char *av)
 	len = ft_strlen(av);
 	if (len <= 4)
 		return(ERROR);
-	if (test_ext(av, ".ber", len - 5) == ERROR)
+	if (test_ext(av, ".ber", len - 4) == ERROR)
 		return (ERROR);
 	return (OK);
 }
@@ -43,9 +43,9 @@ int	test_fich(char *av)
 int main(int ac, char **av)
 {
 	t_map	map;
-	if (ac > 2 || test_fich(av[1]) == ERROR)
+	if (ac != 2 || test_fich(av[1]) == ERROR)
 	{
-		ft_putstr("Error in parameters");
+		ft_putstr("Error in parameters"); //Faire un systeme de gestion d'erreur global avec un indice pour tracker l'erreur
 		return (1);
 	}
 	if (rempli_map(av[1], &map) == ERROR || valide_map(&map))

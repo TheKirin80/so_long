@@ -1,48 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tool.c                                             :+:      :+:    :+:   */
+/*   param_verif_map.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/15 17:54:58 by akefeder          #+#    #+#             */
-/*   Updated: 2022/03/17 14:48:49 by akefeder         ###   ########.fr       */
+/*   Created: 2022/03/17 14:25:08 by akefeder          #+#    #+#             */
+/*   Updated: 2022/03/17 14:48:47 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "so_long.h"
 
-void	ft_putstr_fd(char *s, int fd)
-{
-	int		len;
-
-	if (s != NULL && fd >= 0)
-	{
-		len = ft_strlen(s);
-		write(fd, s, len);
-	}
-}
-
-int	ft_strlen(char *s)
-{
-	int		i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
-
-int	ft_maplen(char **s)
-{
-	int		i;
-
-	i = 0;
-	if (s == NULL)
-		return (i);
-	while (s[i] != NULL)
-		i++;
-	return (i);
-}
-
-int verif_carac(char c, )
