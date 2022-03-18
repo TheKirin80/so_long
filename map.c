@@ -6,7 +6,7 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:47:53 by akefeder          #+#    #+#             */
-/*   Updated: 2022/03/17 14:48:45 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/03/18 17:09:10 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	prepa_map(t_map *map)
 	map->p = 0;
 	map->e = 0;
 	map->c = 0;
+	map->len = 0;
+	map->maplen = 0;
 }
 
 int	add_map(t_map *map, char *line)
@@ -80,7 +82,15 @@ int	rempli_map(char *av, t_map *map)
 
 int	verif_map(t_map *map)
 {
-	if (map->map == NULL)
-		return(ERROR);
-	if (ft_strlen(map->map[0]))
+	map->len = ft_strlen(map->map[0]);
+	map->maplen = ft_maplen(map->map);
+	if (verif_square(map) == ERROR)
+		return (ERROR);
+	if (verif_haut_bas(map) == ERROR)
+		return (ERROR);
+	if (verif_gauche_droite(map) == ERROR)
+		return (ERROR);
+	if (verif_composant(map) == ERROR)
+		return (ERROR);
+	return (OK);
 }

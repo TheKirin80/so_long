@@ -6,7 +6,7 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 17:54:58 by akefeder          #+#    #+#             */
-/*   Updated: 2022/03/17 14:48:49 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/03/18 17:09:09 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,3 @@ int	ft_maplen(char **s)
 	return (i);
 }
 
-int verif_carac(char c, )

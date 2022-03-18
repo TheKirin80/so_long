@@ -6,7 +6,7 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:28:43 by akefeder          #+#    #+#             */
-/*   Updated: 2022/03/15 20:12:47 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/03/18 17:09:14 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ struct s_map
 	int		p;
 	int		e;
 	int		c;
+	int		len;
+	int		lenmap;
 };
 
 typedef struct s_lect	t_lect;
