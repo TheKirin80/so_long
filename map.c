@@ -6,7 +6,7 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:47:53 by akefeder          #+#    #+#             */
-/*   Updated: 2022/03/18 17:09:10 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/03/19 15:37:33 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,30 @@ int	add_map(t_map *map, char *line)
 	int		i;
 
 	len = ft_maplen(map->map);
-	save = malloc((len + 1) * sizeof(char *));
+	save = malloc((len + 2) * sizeof(char *));
 	if (save == NULL)
+	{
+		free(line);
 		return (ERROR);
+	}
 	if (len == 0)
-		*save = line;
+	{
+		save[0] = line;
+		save[1] = NULL;
+	}
 	else
 	{
 		i = 0;
-		while (map[i] != NULL)
+		while (map->map[i] != NULL)
 		{
-			save[i] = map[i];
+			save[i] = map->map[i];
 			i++;
 		}
 		save[i] = line;
+		save[i + 1] = NULL;
 	}
 	free(map->map);
-	map->map. = save;
+	map->map = save;
 	return (OK);
 }
 
@@ -53,7 +60,7 @@ int	rempli_map(char *av, t_map *map)
 {
 	int		fd;
 	char	*line;
-    int		ret;
+	int		ret;
 
 	fd = open(av, O_RDONLY);
 	if (fd == -1)
@@ -63,7 +70,7 @@ int	rempli_map(char *av, t_map *map)
 	while (ret > 0)
 	{
 		if (add_map(map, line) == ERROR)
-			return(ERROR);
+			return (ERROR);
 		line = NULL;
 		ret = get_next_line(fd, &line);
 	}
@@ -73,9 +80,9 @@ int	rempli_map(char *av, t_map *map)
 			free(line);
 		return (ERROR);
 	}
-	else	
+	else
 		if (add_map(map, line) == ERROR)
-			return(ERROR);
+			return (ERROR);
 	line = NULL;
 	return (OK);
 }

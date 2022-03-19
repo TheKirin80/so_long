@@ -6,16 +6,15 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 14:25:08 by akefeder          #+#    #+#             */
-/*   Updated: 2022/03/18 17:09:08 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/03/19 15:39:46 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int verif_square(t_map *map)
+int	verif_square(t_map *map)
 {
-	int len;
-	int i;
+	int	i;
 
 	if (map->len < 3)
 		return (ERROR);
@@ -24,7 +23,7 @@ int verif_square(t_map *map)
 	i = 1;
 	while (map->map[i] != NULL)
 	{
-		if (ft_strlen(map->map[i]) != len)
+		if (ft_strlen(map->map[i]) != map->len)
 			return (ERROR);
 		i++;
 	}
@@ -33,52 +32,54 @@ int verif_square(t_map *map)
 
 int	verif_haut_bas(t_map *map)
 {
-	int i;
-
-	i = 0;
-	while(map->map[0][i] != '\0')
-	{
-		if (map->map[0][i] != '1')
-			return (ERROR);
-	}
-	i = 0;
-	while(map->map[map->maplen - 1][i] != '\0')
-	{
-		if (map->map[map->maplen - 1][i] != '1')
-			return (ERROR);
-	}
-	return OK
-	
-
-}
-
-int verif_gauche_droite(t_map *map)
-{
 	int	i;
 
 	i = 0;
-	while(map->map[i] != NULL)
+	while (map->map[0][i] != '\0')
 	{
-		if (map->map[i][0] != '1')
+		if (map->map[0][i] != '1')
 			return (ERROR);
+		i++;
 	}
 	i = 0;
-	while(map->map[i] != NULL)
+	while (map->map[map->maplen - 1][i] != '\0')
 	{
-		if (map->map[i][map->len - 1] != '1')
+		if (map->map[map->maplen - 1][i] != '1')
 			return (ERROR);
+		i++;
 	}
 	return (OK);
 }
 
-int verif_carac(t_map *map, char c)
+int	verif_gauche_droite(t_map *map)
+{
+	int	i;
+
+	i = 0;
+	while (map->map[i] != NULL)
+	{
+		if (map->map[i][0] != '1')
+			return (ERROR);
+		i++;
+	}
+	i = 0;
+	while (map->map[i] != NULL)
+	{
+		if (map->map[i][map->len - 1] != '1')
+			return (ERROR);
+		i++;
+	}
+	return (OK);
+}
+
+int	verif_carac(t_map *map, char c)
 {
 	if (c == '1' || c == '0')
 		return (OK);
 	if (c == 'P')
 	{
 		map->p = map->p + 1;
-		return(OK);
+		return (OK);
 	}
 	if (c == 'E')
 	{
@@ -95,7 +96,7 @@ int verif_carac(t_map *map, char c)
 
 int	verif_composant(t_map *map)
 {
-	int i;
+	int	i;
 	int	j;
 
 	i = 0;
@@ -112,5 +113,5 @@ int	verif_composant(t_map *map)
 	}
 	if (map->p != 1 || map->c == 0 || map->e == 0)
 		return (ERROR);
-	return (OK); 
+	return (OK);
 }

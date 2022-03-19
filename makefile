@@ -1,4 +1,4 @@
-SRCS	= main.c 
+SRCS	= main.c get_next_line.c get_next_line_utils.c map.c param_verif_map.c tool.c error.c
 
 SRCSBON	=
 

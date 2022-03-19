@@ -6,13 +6,13 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:04:06 by akefeder          #+#    #+#             */
-/*   Updated: 2022/03/15 18:04:24 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/03/19 15:34:55 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int		ft_backslash_n(char *str)
+int	ft_backslash_n(char *str)
 {
 	int	i;
 
@@ -23,16 +23,18 @@ int		ft_backslash_n(char *str)
 	return (NOTFIND);
 }
 
-int		ft_strclen(char *str, char c)
+int	ft_strclen(char *str, char c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str && str[i] != '\0')
+	{
 		if (str[i] != c)
 			i++;
 		else
 			return (i);
+	}
 	return (i);
 }
 

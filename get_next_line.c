@@ -6,7 +6,7 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:04:35 by akefeder          #+#    #+#             */
-/*   Updated: 2022/03/15 18:04:50 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/03/19 13:51:10 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,8 @@ int	insert_static(char **tmp, int fd)
 {
 	char		buf[BUFFER_SIZE + 1];
 	char		*copy;
-	int			flag;
 	ssize_t		nb_car_lu;
 
-	flag = 0;
 	nb_car_lu = 0;
 	while ((nb_car_lu = read(fd, buf, BUFFER_SIZE)) > 0)
 	{
@@ -91,7 +89,7 @@ int	epuration_tmp(char **tmp, int i)
 
 int	get_next_line(int fd, char **line)
 {
-	char	static	*tmp;
+	static char		*tmp;
 	int				i;
 	int				nb_car_lu;
 	int				flag;
