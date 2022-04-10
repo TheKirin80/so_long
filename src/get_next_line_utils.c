@@ -6,11 +6,11 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:04:06 by akefeder          #+#    #+#             */
-/*   Updated: 2022/03/19 15:34:55 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/04/09 17:10:33 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 int	ft_backslash_n(char *str)
 {
