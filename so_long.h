@@ -6,7 +6,7 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:28:43 by akefeder          #+#    #+#             */
-/*   Updated: 2022/04/10 04:21:56 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/04/16 15:59:37 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,13 @@ struct s_file
 	t_map	*map; 
 	int		px;
 	int		py;
-	int		nbr_coup;	
+	int		nbr_coup;
+	int		keycode;
+	void	*bord;
+	void	*fond;
+	void	*col;
+	void	*exit;
+	void	*play;
 };
 
 typedef struct s_lect	t_lect;
@@ -87,5 +93,5 @@ int		charg_file(t_file *file);
 void	affiche_map(t_file *file);
 void	reload(t_file *file, int keycode);
 int		gest_moove(int keycode, t_file *file);
-int		gest_close(int keycode, t_file *file);
+int		gest_close(t_file *file);
 #endif

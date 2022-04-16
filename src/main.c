@@ -6,7 +6,7 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:28:58 by akefeder          #+#    #+#             */
-/*   Updated: 2022/04/10 03:58:28 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/04/16 16:15:39 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,6 @@ int	test_fich(char *av)
 	if (test_ext(av, ".ber", len - 4) == ERROR)
 		return (ERROR);
 	return (OK);
-}
-
-int	affiche(int keycode, t_file *file)
-{
-
-	printf("%i\n", keycode);
-	printf("%i\n", file->map->e);
-	return(0);
 }
 
 int	main(int ac, char **av)
