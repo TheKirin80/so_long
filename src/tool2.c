@@ -6,13 +6,13 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 02:16:16 by akefeder          #+#    #+#             */
-/*   Updated: 2022/04/19 02:21:07 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/04/19 02:57:56 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void affichage(t_file *file, int i)
+void	affichage(t_file *file, int i)
 {
 	if (i == 1)
 	{

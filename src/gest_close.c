@@ -6,7 +6,7 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 03:59:01 by akefeder          #+#    #+#             */
-/*   Updated: 2022/04/19 02:25:05 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/04/19 02:54:28 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	free_map(t_file *file)
 		free(file->map->map[i]);
 		i++;
 	}
-	//free(file->map->map);
+	free(file->map->map);
 }
 
 int	gest_close(t_file *file)

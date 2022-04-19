@@ -6,7 +6,7 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 17:54:58 by akefeder          #+#    #+#             */
-/*   Updated: 2022/04/19 02:22:04 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/04/19 02:58:09 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
+
 int	ft_strlen(char *s)
 {
 	int		i;
