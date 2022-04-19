@@ -6,7 +6,7 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:47:53 by akefeder          #+#    #+#             */
-/*   Updated: 2022/04/09 17:10:57 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/04/19 02:50:45 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,17 +87,3 @@ int	rempli_map(char *av, t_map *map)
 	return (OK);
 }
 
-int	verif_map(t_map *map)
-{
-	map->len = ft_strlen(map->map[0]);
-	map->maplen = ft_maplen(map->map);
-	if (verif_square(map) == ERROR)
-		return (ERROR);
-	if (verif_haut_bas(map) == ERROR)
-		return (ERROR);
-	if (verif_gauche_droite(map) == ERROR)
-		return (ERROR);
-	if (verif_composant(map) == ERROR)
-		return (ERROR);
-	return (OK);
-}

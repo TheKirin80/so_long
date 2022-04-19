@@ -6,7 +6,7 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:28:43 by akefeder          #+#    #+#             */
-/*   Updated: 2022/04/16 15:59:37 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/04/18 22:09:56 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,6 @@ void	affiche_map(t_file *file);
 void	reload(t_file *file, int keycode);
 int		gest_moove(int keycode, t_file *file);
 int		gest_close(t_file *file);
+void	ft_putnbr(int i);
+void	affichage(t_file *file, int i);
 #endif

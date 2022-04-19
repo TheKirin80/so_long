@@ -6,7 +6,7 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:28:58 by akefeder          #+#    #+#             */
-/*   Updated: 2022/04/16 16:15:39 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/04/19 01:51:52 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ int	main(int ac, char **av)
 	if (charg_file(&file) == ERROR)
 		return (gest_error(&map, 3));
 	affiche_map(&file);
-	mlx_hook(file.win, 2, 1L<<0, gest_moove, &file);
-	mlx_hook(file.win, 33, 1L<<5, gest_close, &file);
+	mlx_hook(file.win, 2, 1L << 0, gest_moove, &file);
+	mlx_hook(file.win, 33, 1L << 5, gest_close, &file);
 	mlx_loop(file.mlx);
 	return (0);
 }

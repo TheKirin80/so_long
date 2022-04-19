@@ -6,7 +6,7 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 17:54:58 by akefeder          #+#    #+#             */
-/*   Updated: 2022/04/16 16:25:24 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/04/19 02:22:04 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ void	ft_putstr_fd(char *s, int fd)
 	}
 }
 
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 int	ft_strlen(char *s)
 {
 	int		i;
@@ -43,4 +47,25 @@ int	ft_maplen(char **s)
 	while (s[i] != NULL)
 		i++;
 	return (i);
+}
+
+void	ft_putnbr(int i)
+{
+	if (i == -2147483648)
+		ft_putstr_fd("-2147483648", 1);
+	else
+	{
+		if (i < 0)
+		{
+			i = i * -1;
+			ft_putchar('-');
+		}
+		if (i >= 10)
+		{
+			ft_putnbr(i / 10);
+			ft_putchar((i % 10) + 48);
+		}
+		else
+			ft_putchar((i % 10) + 48);
+	}
 }

@@ -1,6 +1,6 @@
 SRC_DIR	= src
 
-SRC_FILES	= gest_close.c moove.c file.c main.c get_next_line.c get_next_line_utils.c map.c param_verif_map.c tool.c error.c
+SRC_FILES	= tool2.c gest_close.c moove.c file.c main.c get_next_line.c get_next_line_utils.c map.c param_verif_map.c tool.c error.c
 
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 

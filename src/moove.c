@@ -6,7 +6,7 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 00:59:47 by akefeder          #+#    #+#             */
-/*   Updated: 2022/04/16 16:23:05 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/04/18 22:09:46 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	left_moove(t_file *file)
 			file->map->map[file->px][file->py - 1] = 'P';
 			file->py = file->py - 1;
 			file->nbr_coup = file->nbr_coup + 1;
+			affichage(file, 1);
 		}
 	}
 }
@@ -50,6 +51,7 @@ void	right_moove(t_file *file)
 			file->map->map[file->px][file->py + 1] = 'P';
 			file->py = file->py + 1;
 			file->nbr_coup = file->nbr_coup + 1;
+			affichage(file, 1);
 		}
 	}
 }
@@ -71,6 +73,7 @@ void	down_moove(t_file *file)
 			file->map->map[file->px + 1][file->py] = 'P';
 			file->px = file->px + 1;
 			file->nbr_coup = file->nbr_coup + 1;
+			affichage(file, 1);
 		}
 	}	
 }
@@ -92,6 +95,7 @@ void	up_moove(t_file *file)
 			file->map->map[file->px - 1][file->py] = 'P';
 			file->px = file->px - 1;
 			file->nbr_coup = file->nbr_coup + 1;
+			affichage(file, 1);
 		}
 	}	
 }
