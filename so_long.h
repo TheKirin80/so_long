@@ -6,7 +6,7 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:28:43 by akefeder          #+#    #+#             */
-/*   Updated: 2022/04/18 22:09:56 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/04/20 02:00:41 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ struct s_file
 {
 	void	*mlx;
 	void	*win;
-	t_map	*map; 
+	t_map	*map;
 	int		px;
 	int		py;
 	int		nbr_coup;

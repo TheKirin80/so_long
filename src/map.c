@@ -6,7 +6,7 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:47:53 by akefeder          #+#    #+#             */
-/*   Updated: 2022/04/19 02:50:45 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/04/20 02:00:21 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,3 @@ int	rempli_map(char *av, t_map *map)
 	line = NULL;
 	return (OK);
 }
-

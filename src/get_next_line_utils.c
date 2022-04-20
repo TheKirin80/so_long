@@ -6,7 +6,7 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:04:06 by akefeder          #+#    #+#             */
-/*   Updated: 2022/04/09 17:10:33 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/04/20 01:56:36 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ char	*ft_strjoin(char *s1, char *s2)
 	i = 0;
 	j = 0;
 	len = ft_strclen(s1, 0) + ft_strclen(s2, 0) + 1;
-	if (!(res = (char *)malloc(len * sizeof(char))))
+	res = (char *)malloc(len * sizeof(char));
+	if (!res)
 		return (NULL);
 	while (s1[i] != '\0')
 	{
