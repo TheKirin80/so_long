@@ -6,13 +6,13 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 17:34:09 by akefeder          #+#    #+#             */
-/*   Updated: 2022/04/19 01:49:18 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/04/22 00:09:59 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	load_img(t_file *file)
+int	load_img(t_file *file)
 {
 	int		iw;
 	int		ih;
@@ -24,15 +24,23 @@ void	load_img(t_file *file)
 	file->col = mlx_xpm_file_to_image(file->mlx, "./img/col.xpm", &iw, &ih);
 	file->exit = mlx_xpm_file_to_image(file->mlx, "./img/exit.xpm", &iw, &ih);
 	file->play = mlx_xpm_file_to_image(file->mlx, "./img/play.xpm", &iw, &ih);
+	if (!file->bord || !file->fond || !file->col || !!file->exit || !file->play)
+		return (ERROR);
+	return (OK);
 }
 
 int	charg_file(t_file *file)
 {
 	file->mlx = mlx_init();
+	if (!file->mlx)
+		return (ERROR);
 	file->win = mlx_new_window(file->mlx, file->map->len * SIZEPIC,
 			file->map->maplen * SIZEPIC, "SO_LONG");
+	if (!file->win)
+		return (ERROR);
 	file->nbr_coup = 0;
-	load_img(file);
+	if (load_img(file) == ERROR)
+		return (ERROR);
 	return (OK);
 }
 

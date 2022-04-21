@@ -6,7 +6,7 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:04:35 by akefeder          #+#    #+#             */
-/*   Updated: 2022/04/20 01:54:56 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/04/21 20:50:48 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,12 +92,14 @@ int	epuration_tmp(char **tmp, int i)
 	return (OK);
 }
 
-int	get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line, int reset)
 {
 	static char		*tmp;
 	int				i;
 	int				flag;
 
+	if (reset)
+		return (free(tmp), END);
 	if (line == 0 || BUFFER_SIZE == 0)
 		return (ERROR);
 	if (prepa_tmp(&tmp, &flag) == ERROR)
@@ -112,11 +114,7 @@ int	get_next_line(int fd, char **line)
 	if (epuration_tmp(&tmp, i) == ERROR)
 		return (ERROR);
 	if (flag == 1)
-	{
-		free(tmp);
-		tmp = NULL;
-		return (END);
-	}
+		return (free(tmp), tmp = NULL, END);
 	else
 		return (CONTINUE);
 }

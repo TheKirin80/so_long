@@ -6,7 +6,7 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:47:53 by akefeder          #+#    #+#             */
-/*   Updated: 2022/04/20 02:35:53 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/04/21 20:54:09 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,19 +77,18 @@ int	rempli_map(char *av, t_map *map)
 	if (rempli_map_help(&fd, av) == ERROR)
 		return (ERROR);
 	line = NULL;
-	ret = get_next_line(fd, &line);
+	ret = get_next_line(fd, &line, 0);
 	while (ret > 0)
 	{
 		if (add_map(map, line) == ERROR)
-			return (ERROR);
+			return (close(fd), ERROR);
 		line = NULL;
-		ret = get_next_line(fd, &line);
+		ret = get_next_line(fd, &line, 0);
 	}
+	get_next_line(fd, &line, 1);
+	close(fd);
 	if (ret == -1)
-	{
-		free(line);
 		return (ERROR);
-	}
 	else
 		if (add_map(map, line) == ERROR)
 			return (ERROR);

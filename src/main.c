@@ -6,7 +6,7 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:28:58 by akefeder          #+#    #+#             */
-/*   Updated: 2022/04/19 01:51:52 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/04/22 00:21:53 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,18 @@ int	main(int ac, char **av)
 	t_map	map;
 	t_file	file;
 
+	file = (t_file){0};
 	prepa_map(&map);
 	if (ac != 2 || test_fich(av[1]) == ERROR)
-		return (gest_error(&map, 1));
+		return (gest_error(&map, 1, &file));
 	if (rempli_map(av[1], &map) == ERROR || verif_map(&map))
-		return (gest_error(&map, 2));
+		return (gest_error(&map, 2, &file));
 	file.map = &map;
 	if (charg_file(&file) == ERROR)
-		return (gest_error(&map, 3));
+		return (gest_error(&map, 3, &file));
 	affiche_map(&file);
-	mlx_hook(file.win, 2, 1L << 0, gest_moove, &file);
-	mlx_hook(file.win, 33, 1L << 5, gest_close, &file);
+	mlx_hook(file.win, KeyPress, KeyPressMask, gest_moove, &file);
+	mlx_hook(file.win, ClientMessage, LeaveWindowMask, gest_close, &file);
 	mlx_loop(file.mlx);
 	return (0);
 }

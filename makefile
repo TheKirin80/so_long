@@ -18,19 +18,19 @@ CC 		= clang
 
 RM 		= rm -f
 
-CFLAGS	= -Wall -Wextra -Werror -O3 #-fsanitize=address
+CFLAGS	= -Wall -Wextra -Werror -g3 #-O3 #-fsanitize=address
+
+all:		${NAME}
 
 .c.o :
-			$(CC) -Wall -Wextra -Werror -I/usr/include -Imlx_linux -O3 -c $< -o $@
+			$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -c $< -o $@
 
 ${NAME}:	${OBJS}
 			@make --no-print-directory -C mlx_linux
-			$(CC) $(OBJS) -Lmlx_linux -lmlx -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+			$(CC) $(CFLAGS) $(OBJS) -Lmlx_linux -lmlx -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
 bonus:		${OBJS} ${OBJSBON} 
 			${CCLIB} ${OBJS} ${OBJSBON}
-
-all:		${NAME}
 
 clean:		
 			${RM} ${OBJS} ${OBJSBON}

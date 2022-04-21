@@ -6,7 +6,7 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 15:28:43 by akefeder          #+#    #+#             */
-/*   Updated: 2022/04/20 02:27:22 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/04/22 00:20:59 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <mlx.h>
-
+# include <X11/X.h>
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 4
 # endif
@@ -37,6 +37,9 @@
 # define KEY_ECHAP 65307
 
 typedef struct s_map	t_map;
+typedef struct s_file	t_file;
+typedef struct s_lect	t_lect;
+
 struct s_map
 {
 	char	**map;
@@ -47,7 +50,6 @@ struct s_map
 	int		maplen;
 };
 
-typedef struct s_file	t_file;
 struct s_file
 {
 	void	*mlx;
@@ -64,7 +66,6 @@ struct s_file
 	void	*play;
 };
 
-typedef struct s_lect	t_lect;
 struct	s_lect
 {
 	int		fd;
@@ -73,7 +74,7 @@ struct	s_lect
 
 char	*ft_strjoin(char *s1, char *s2);
 int		ft_backslash_n(char *str);
-int		get_next_line(int fd, char **line);
+int		get_next_line(int fd, char **line, int reset);
 int		ft_strclen(char *str, char c);
 char	*ft_strdup(char *s);
 int		ft_maplen(char **s);
@@ -88,7 +89,7 @@ void	prepa_map(t_map *map);
 int		add_map(t_map *map, char *line);
 int		rempli_map(char *av, t_map *map);
 int		verif_map(t_map *map);
-int		gest_error(t_map *map, int code);
+int		gest_error(t_map *map, int code, t_file *file);
 int		charg_file(t_file *file);
 void	affiche_map(t_file *file);
 void	reload(t_file *file, int keycode);
@@ -96,4 +97,6 @@ int		gest_moove(int keycode, t_file *file);
 int		gest_close(t_file *file);
 void	ft_putnbr(int i);
 void	affichage(t_file *file, int i);
+void	free_map(t_file *file);
+void	destroy_img(t_file *file);
 #endif
