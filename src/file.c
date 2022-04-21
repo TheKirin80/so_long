@@ -6,7 +6,7 @@
 /*   By: akefeder <akefeder@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 17:34:09 by akefeder          #+#    #+#             */
-/*   Updated: 2022/04/22 00:09:59 by akefeder         ###   ########.fr       */
+/*   Updated: 2022/04/22 00:44:48 by akefeder         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	load_img(t_file *file)
 	file->col = mlx_xpm_file_to_image(file->mlx, "./img/col.xpm", &iw, &ih);
 	file->exit = mlx_xpm_file_to_image(file->mlx, "./img/exit.xpm", &iw, &ih);
 	file->play = mlx_xpm_file_to_image(file->mlx, "./img/play.xpm", &iw, &ih);
-	if (!file->bord || !file->fond || !file->col || !!file->exit || !file->play)
+	if (!file->bord || !file->fond || !file->col || !file->exit || !file->play)
 		return (ERROR);
 	return (OK);
 }
